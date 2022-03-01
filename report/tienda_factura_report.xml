@@ -1,0 +1,31 @@
+<odoo>
+    <record id="tienda.factura_report" model="ir.actions.report">
+        <field name="name"> Informe de facturas</field>
+        <field name="model">tienda.factura</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tienda.factura_report_view</field>
+        <field name="report_file">tienda.factura_report</field>
+        <field name="binding_model_id" ref="model_tienda_factura"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+    <template id="factura_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>Facturas </h1><br />
+                <t t-foreach="docs" t-as="factura">
+                    <ul>
+                        <li>    cod: <span t-field="factura.name" /></li>
+                        <li>    mes: <span t-field="factura.mes" /></li>
+                        <li>    precio base: <span t-field="factura.precioBase" /></li>
+                        <li>    iva: <span t-field="factura.iva" /></li>
+                        <li>    total: <span t-field="factura.total" /></li>
+                        <li>    cliente: <span t-field="factura.cliente_id" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,31 @@
+<odoo>
+    <record id="tienda.ordenador_report" model="ir.actions.report">
+        <field name="name"> Informe de ordenadores</field>
+        <field name="model">tienda.ordenador</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tienda.ordenador_report_view</field>
+        <field name="report_file">tienda.ordenador_report</field>
+        <field name="binding_model_id" ref="model_tienda_ordenador"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+    <template id="ordenador_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>Ordenadores </h1><br />
+                <t t-foreach="docs" t-as="ordenador">
+                    <ul>
+                        <li>    cod: <span t-field="ordenador.name" /></li>
+                        <li>    descripcion: <span t-field="ordenador.descripcion" /></li>
+                        <li>    precio fabrica: <span t-field="ordenador.precioFabrica" /></li>
+                        <li>    precio venta: <span t-field="ordenador.precioVenta" /></li>
+                        <li>    beneficio: <span t-field="ordenador.beneficio" /></li>
+                        <li>    cliente: <span t-field="ordenador.cliente_id" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

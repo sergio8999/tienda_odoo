@@ -1,0 +1,344 @@
+<odoo>
+  <data>
+
+    <!-- Vistas de cliente-->
+
+    <record model="ir.ui.view" id="tienda.cliente_list_view">
+      <field name="name">tienda.cliente.view.tree</field>
+      <field name="model">tienda.cliente</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="apellido"/>
+          <field name="fecha_nacimiento"/>
+          <field name="anios"/>
+          <field name="mayorEdad"/>
+          <field name="ordenador_ids"/>
+          <field name="factura_ids"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="tienda.cliente_search_view">
+      <field name="name">tienda.cliente.view.search</field>
+      <field name="model">tienda.cliente</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="apellido"/>
+          <field name="anios"/>
+          <field name="mayorEdad"/>
+          <field name="ordenador_ids"/>
+          <field name="factura_ids"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="tienda.cliente_form_view">
+      <field name="name">tienda.cliente.view.form</field>
+      <field name="model">tienda.cliente</field>
+      <field name="arch" type="xml">
+        <form string="Información cliente">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                DNI <field name="name" placeholder="dni"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre" placeholder="nombre"/>
+                <field name="apellido"/>
+                <field name="fecha_nacimiento"/>
+                <field name="ordenador_ids"/>
+                <field name="factura_ids"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+
+<!-- calendar -->
+
+    <record model="ir.ui.view" id="tienda.cliente_calendar_view">
+      <field name="name">tienda.cliente.view.calendar</field>
+      <field name="model">tienda.cliente</field>
+      <field name="arch" type="xml">
+        <calendar string="Fecha de nacimiento" date_start="fecha_nacimiento" color="nombre" mode="month">
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="apellido"/>
+          <field name="anios"/>
+          <field name="mayorEdad"/>
+          <field name="ordenador_ids"/>
+          <field name="factura_ids"/>
+        </calendar>
+      </field>
+    </record>
+
+     <!-- Vistas de factura-->
+
+    <record model="ir.ui.view" id="tienda.factura_list_view">
+      <field name="name">tienda.factura.view.tree</field>
+      <field name="model">tienda.factura</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="mes"/>
+          <field name="precioBase"/>
+          <field name="iva"/>
+          <field name="total"/>
+          <field name="cliente_id"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="tienda.factura_search_view">
+      <field name="name">tienda.factura.view.search</field>
+      <field name="model">tienda.factura</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="mes"/>
+          <field name="precioBase"/>
+          <field name="iva"/>
+          <field name="total"/>
+          <field name="cliente_id"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="tienda.factura_form_view">
+      <field name="name">tienda.factura.view.form</field>
+      <field name="model">tienda.factura</field>
+      <field name="arch" type="xml">
+        <form string="Información pieza">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Cod. <field name="name" placeholder="cod"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="mes"/>
+              <field name="precioBase"/>
+              <field name="iva"/>
+              <field name="cliente_id"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+        <!-- Vistas de ordenador-->
+
+    <record model="ir.ui.view" id="tienda.ordenador_list_view">
+      <field name="name">tienda.ordenador.view.tree</field>
+      <field name="model">tienda.ordenador</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="descripcion"/>
+          <field name="precioFabrica"/>
+          <field name="precioVenta"/>
+          <field name="beneficio"/>
+          <field name="pieza_ids"/>
+          <field name="cliente_id"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="tienda.ordenador_search_view">
+      <field name="name">tienda.ordenador.view.search</field>
+      <field name="model">tienda.ordenador</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="descripcion"/>
+          <field name="precioFabrica"/>
+          <field name="precioVenta"/>
+          <field name="pieza_ids"/>
+          <field name="cliente_id"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="tienda.ordenador_form_view">
+      <field name="name">tienda.ordenador.view.form</field>
+      <field name="model">tienda.ordenador</field>
+      <field name="arch" type="xml">
+        <form string="Información ordenador">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+
+          <field name="beneficio"/>/                Cod. <field name="name" placeholder="cod"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="descripcion"/>
+                <field name="precioFabrica"/>
+                <field name="pieza_ids"/>
+                <field name="cliente_id"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+          <!-- Vistas de pieza-->
+
+    <record model="ir.ui.view" id="tienda.pieza_list_view">
+      <field name="name">tienda.pieza.view.tree</field>
+      <field name="model">tienda.pieza</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="precio"/>
+          <field name="cantidad"/>
+          <field name="total"/>
+          <field name="ordenador_id"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="tienda.pieza_search_view">
+      <field name="name">tienda.pieza.view.search</field>
+      <field name="model">tienda.pieza</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="precio"/>
+          <field name="cantidad"/>
+          <field name="total"/>
+          <field name="ordenador_id"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="tienda.pieza_form_view">
+      <field name="name">tienda.pieza.view.form</field>
+      <field name="model">tienda.pieza</field>
+      <field name="arch" type="xml">
+        <form string="Información pieza">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Cod. <field name="name" placeholder="cod"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre"/>
+                <field name="precio"/>
+                <field name="cantidad"/>
+                <field name="ordenador_id"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="tienda.cliente_action_window">
+      <field name="name">CLienntes</field>
+      <field name="res_model">tienda.cliente</field>
+      <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="tienda.factura_action_window">
+      <field name="name">Facturas</field>
+      <field name="res_model">tienda.factura</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="tienda.ordenador_action_window">
+      <field name="name">Ordenadores</field>
+      <field name="res_model">tienda.ordenador</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="tienda.pieza_action_window">
+      <field name="name">Piezas</field>
+      <field name="res_model">tienda.pieza</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="tienda" id="tienda.menu_root"/>
+    <menuitem name="Clientes" id="tienda.menu_cliente" parent="tienda.menu_root"/>
+    <menuitem name="Facturas" id="tienda.menu_factura" parent="tienda.menu_root"/>
+    <menuitem name="Ordenadores" id="tienda.menu_ordenador" parent="tienda.menu_root"/>
+    <menuitem name="Piezas" id="tienda.menu_pieza" parent="tienda.menu_root"/>
+
+    <menuitem name="List" id="tienda.menu_cliente_list" parent="tienda.menu_cliente"
+              action="tienda.cliente_action_window"/>
+
+     <menuitem name="List" id="tienda.menu_factura_list" parent="tienda.menu_factura"
+              action="tienda.factura_action_window"/>
+
+    <menuitem name="List" id="tienda.menu_ordenador_list" parent="tienda.menu_ordenador"
+              action="tienda.ordenador_action_window"/>
+
+    <menuitem name="List" id="tienda.menu_pieza_list" parent="tienda.menu_pieza"
+              action="tienda.pieza_action_window"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tienda_cliente_usuario,tienda.cliente.usuario,model_tienda_cliente,tienda.group_tienda_usuario,1,0,0,0
+access_tienda_cliente_administrador,tienda.cliente.administrador,model_tienda_cliente,tienda.group_tienda_administrador,1,1,1,1_
+
+access_tienda_factura_usuario,tienda.factura.usuario,model_tienda_factura,tienda.group_tienda_usuario,1,0,0,0
+access_tienda_factura_administrador,tienda.factura.administrador,model_tienda_factura,tienda.group_tienda_administrador,1,1,1,1_
+
+access_tienda_ordenador_usuario,tienda.ordenador.usuario,model_tienda_ordenador,tienda.group_tienda_usuario,1,0,0,0
+access_tienda_ordenador_administrador,tienda.ordenador.administrador,model_tienda_ordenador,tienda.group_tienda_administrador,1,1,1,1_
+
+access_tienda_pieza_usuario,tienda.pieza.usuario,model_tienda_pieza,tienda.group_tienda_usuario,1,0,0,0
+access_tienda_pieza_administrador,tienda.pieza.administrador,model_tienda_pieza,tienda.group_tienda_administrador,1,1,1,1_
